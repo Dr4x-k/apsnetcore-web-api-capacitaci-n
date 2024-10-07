@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\capacitacion.DTOs\capacitacion.DTOs.csproj" />
+    <ProjectReference Include="..\capacitacion.Models\capacitacion.Models.csproj" />
+  </ItemGroup>
+
 </Project>
