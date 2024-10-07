@@ -1,4 +1,4 @@
-namespace capacitacion.Models
+﻿namespace capacitacion.Models
 {
   public class TareaModel
   {
@@ -6,5 +6,6 @@ namespace capacitacion.Models
     public string Tarea { get; set; }
     public string Descripcion { get; set; }
     public bool Completado { get; set; }
+		public UsuarioModel Usuario { get; set; }
   }
 }
