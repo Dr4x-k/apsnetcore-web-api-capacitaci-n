@@ -13,6 +13,7 @@ builder.Services.AddSwaggerGen ();
 var PostgreSQLConnectionConfiguration = new PostgreSQLConnection(Environment.GetEnvironmentVariable("CONNECTION_STRING"));
 builder.Services.AddSingleton(PostgreSQLConnectionConfiguration);
 
+// Servicios
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 var app = builder.Build ();

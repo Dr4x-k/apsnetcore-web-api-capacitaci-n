@@ -2,11 +2,11 @@
 {
   public class UsuarioModel
   {
-    public string IdUsuario { get; set; }
-    public string Nombre { get; set; }
+    public int IdUsuario { get; set; }
+    public string Nombres { get; set; }
     public string Usuario { get; set; }
     public string Contrasena { get; set; }
-    public IEnumerable<TareaModel> Tareas { get; set; }
+		public IEnumerable<TareaModel> Tareas { get; set; } = [];
 
   }
 }

@@ -1,32 +1,51 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using capacitacion.Data.Interfaces;
+using capacitacion.DTOs;
+using capacitacion.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace capacitacion.Controllers {
   [Route ("api/[controller]")]
   [ApiController]
   public class UsuarioController : ControllerBase {
 
-    [HttpGet]
-    public IEnumerable<string> FindAll () {
-      return new string[] { "value1", "value2" };
+		IUsuarioService _service;
+
+		public UsuarioController(IUsuarioService service) => _service = service;
+
+		[HttpGet]
+    public async Task<IActionResult> FindAll () {
+			IEnumerable<UsuarioModel> users = await _service.FindAll();
+			return Ok(users);
     }
 
-    [HttpGet ("{id}")]
-    public string FindOne (int id) {
-      return "value";
+    [HttpGet ("{targetId}")]
+    public async Task<IActionResult> FindOne (int targetId) {
+			UsuarioModel? user = await _service.FindOne(targetId);
+
+			if (user == null) return NotFound();
+
+			return Ok(user);
     }
 
     [HttpPost]
-    public void Create ([FromBody] string value) {
+    public async Task<IActionResult> Create ([FromBody] CreateUsuarioDto createUsuarioDto) {
+			UsuarioModel? user = await _service.Create(createUsuarioDto);
+
+			if (user == null) return StatusCode(500);
+
+			return Created(user.IdUsuario.ToString(), user);
     }
 
-    // PUT api/<UsuarioController>/5
-    [HttpPut ("{id}")]
-    public void Update (int id, [FromBody] string value) {
+    [HttpPut ("{targetId}")]
+    public async Task<IActionResult> Update (int targetId, [FromBody] UpdateUsuarioDto updateUsuarioDto) {
+			UsuarioModel? userUpdated = await _service.Update(updateUsuarioDto, targetId);
+			return Ok(userUpdated);
     }
 
-    // DELETE api/<UsuarioController>/5
-    [HttpDelete ("{id}")]
-    public void Remove (int id) {
+    [HttpDelete ("{targetId}")]
+    public async Task<IActionResult> Remove (int targetId) {
+			UsuarioModel? userRemoved = await _service.Remove(targetId);
+			return Ok(userRemoved);
     }
   }
 }
