@@ -1,11 +1,9 @@
 using capacitacion.Models;
-using capacitacion.DTOs;
+using capacitacion.DTOs.Tarea;
 
 namespace capacitacion.Data.Interfaces {
-  public interface ITareaService {
-    public Task<List<TareaModel>> FindAll();
-    public Task<TareaModel> FindOne(string targetId);
-    public Task<TareaModel> Create(CreateTareaDTO createTareaDTO);
-    public Task<TareaModel> Update(UpdateTareaDTO updateTareaDTO, string targetId);
-  }
+	public interface ITareaService {
+		public Task<TareaModel?> Create(CreateTareaDTO createTareaDTO);
+		public Task<TareaModel?> Update(int idTarea, UpdateTareaDTO updateTareaDTO);
+	}
 }

@@ -15,6 +15,7 @@ builder.Services.AddSingleton(PostgreSQLConnectionConfiguration);
 
 // Servicios
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<ITareaService, TareaService>();
 
 var app = builder.Build ();
 

@@ -1,8 +1,7 @@
-namespace capacitacion.DTOs {
-  public class CreateTareaDTO {
-    public string Tarea { get; set; }
-    public string Descripcion { get; set; }
-    public bool Completado { get; set; }
-    public string IdUsuario { get; set; }
-  }
+namespace capacitacion.DTOs.Tarea {
+	public class CreateTareaDTO {
+		public string Tarea { get; set; }
+		public string Descripcion { get; set; }
+		public int IdUsuario { get; set; }
+	}
 }
