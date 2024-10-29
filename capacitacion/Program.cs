@@ -10,8 +10,8 @@ builder.Services.AddControllers ();
 builder.Services.AddEndpointsApiExplorer ();
 builder.Services.AddSwaggerGen ();
 
-var PostgreSQLConnectionConfiguration = new PostgreSQLConnection(Environment.GetEnvironmentVariable("CONNECTION_STRING"));
-builder.Services.AddSingleton(PostgreSQLConnectionConfiguration);
+PostgreSQLConnection postgreSQLConnection = new(Environment.GetEnvironmentVariable("CONNECTION_STRING"));
+builder.Services.AddSingleton(postgreSQLConnection);
 
 // Servicios
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();

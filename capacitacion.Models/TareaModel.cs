@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 namespace capacitacion.Models {
+=======
+﻿namespace capacitacion.Models {
+>>>>>>> Stashed changes
 	public class TareaModel {
 		public int IdTarea { get; set; }
 		public string Tarea { get; set; }
